@@ -107,6 +107,14 @@ struct PlayerTests {
 
 struct Board {
     var fields: [Field]
+
+  init(fields: [Field]) {
+    self.fields = fields
+  }
+
+  init(fieldCount: Int) {
+    self.fields = Array(repeating: Field(), count: fieldCount)
+  }
 }
 
 @Suite
@@ -125,6 +133,14 @@ struct BoardTests {
   func onInit_withSomeNumberOfFields_shouldHaveNumberOfFields() {
     let number = Int.random(in: 1...10)
     let sut = Board(fields: Array(repeating: Field(), count: number))
+
+    #expect(sut.fields.count == number) // The fields array should contain the specified number of Field objects
+  }
+
+  @Test
+  func onInit_withSomeNumberOfFieldCount_shouldHaveNumberOfFields() {
+    let number = Int.random(in: 1...10)
+    let sut = Board(fieldCount: number)
 
     #expect(sut.fields.count == number) // The fields array should contain the specified number of Field objects
   }
