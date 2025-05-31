@@ -41,7 +41,7 @@ import Testing
 // TCR
 
 class Field {
-    var player: Any? = nil
+    var player: Player? = nil
 }
 
 @Suite
@@ -53,16 +53,6 @@ struct FieldTests {
         let value = sut.player
         
         #expect(value == nil)
-    }
-    
-    @Test
-    func onAssign_whenX_assignedValueIsNotNil() {
-        let sut = Field()
-        sut.player = "X"
-        
-        let value = sut.player
-        
-        #expect(value != nil)
     }
 }
 
@@ -81,7 +71,7 @@ struct PlayerTests {
         
         sut.set(field: field)
         
-        #expect(field.player as? Player == sut)
+        #expect(field.player == sut)
     }
     
     @Test
