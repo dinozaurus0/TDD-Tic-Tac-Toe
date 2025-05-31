@@ -120,4 +120,12 @@ struct BoardTests {
     #expect(property != nil) // There should be a property named "fields"
     #expect(property?.value is [Field]) // fields property should be an array of Field objects
   }
+
+  @Test
+  func onInit_withSomeNumberOfFields_shouldHaveNumberOfFields() {
+    let number = Int.random(in: 1...10)
+    let sut = Board(fields: Array(repeating: Field(), count: number))
+
+    #expect(sut.fields.count == number) // The fields array should contain the specified number of Field objects
+  }
 }
