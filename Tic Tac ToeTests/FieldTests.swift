@@ -17,12 +17,15 @@ import Testing
  1. One field where user can introduce either X or O
  1.1. Creating a field should be an action on its own.
  1.2. A field can have a value/contain a value.
- 1.2.1. Make value a concrete type.
+ 1.2.1. Make value a concrete type. ~> not implemented
  1.3. One player can introduce a value. At this stage consider only one.
  1.3.1. Define a player
  1.3.2. Define the value ~> Not needed at this stage
  1.3.3. Player can set a value
  1.3.4. Should Field be a value or reference type?
+ A field has been set by a given player?
+ 
+ 
  1.4. Decide when the user wins a round ~> for this particular case would be only that he introduces a valid value.
  */
 
@@ -33,18 +36,19 @@ import Testing
 
 // action that triggers -- when it gets trigger -- what the result of this is
 
+// TCR
+
 class Field {
-    var value: Any? = nil
+    var player: Any? = nil
 }
 
 @Suite
 struct FieldTests {
-    
     @Test
     func onInit_whenDefault_assignsValueAsNil() {
         let sut = Field()
         
-        let value = sut.value
+        let value = sut.player
         
         #expect(value == nil)
     }
@@ -52,9 +56,9 @@ struct FieldTests {
     @Test
     func onAssign_whenX_assignedValueIsNotNil() {
         let sut = Field()
-        sut.value = "X"
+        sut.player = "X"
         
-        let value = sut.value
+        let value = sut.player
         
         #expect(value != nil)
     }
@@ -62,13 +66,12 @@ struct FieldTests {
 
 struct Player {
     func set(field: Field) {
-        field.value = "X"
+        field.player = self
     }
 }
 
 @Suite
 struct PlayerTests {
-    
     @Test
     func onSet_whenField_fieldValueIsNotNil() {
         let sut = Player()
@@ -76,8 +79,6 @@ struct PlayerTests {
         
         sut.set(field: field)
         
-        #expect(field.value != nil)
+        #expect(field.player != nil)
     }
 }
-
-// :thumbs up
