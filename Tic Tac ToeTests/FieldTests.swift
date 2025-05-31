@@ -45,7 +45,7 @@ class Field {
     var player: Player? = nil
     
     var isEnded: Bool {
-        return false
+        player != nil
     }
 }
 
@@ -67,6 +67,16 @@ struct FieldTests {
         let isEnded = sut.isEnded
         
         #expect(!isEnded)
+    }
+    
+    @Test
+    func isEnded_whenPlayerIsSet_isEndedIsTrue() {
+        let sut = Field()
+        sut.player = Player()
+        
+        let isEnded = sut.isEnded
+        
+        #expect(isEnded)
     }
 }
 
