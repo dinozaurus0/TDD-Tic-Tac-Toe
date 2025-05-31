@@ -24,8 +24,9 @@ import Testing
  1.3.3. Player can set a value
  1.3.4. Should Field be a value or reference type?
  A field has been set by a given player?
- - Need a way to identify which player is which
+ - Need a way to identify which player is which. (Not needed at this stage)
     - How to determine that 2 players are equal?
+ Ask a field if the game is over.
  
  
  1.4. Decide when the user wins a round ~> for this particular case would be only that he introduces a valid value.
@@ -42,6 +43,10 @@ import Testing
 
 class Field {
     var player: Player? = nil
+    
+    var isEnded: Bool {
+        return false
+    }
 }
 
 @Suite
@@ -53,6 +58,15 @@ struct FieldTests {
         let value = sut.player
         
         #expect(value == nil)
+    }
+    
+    @Test
+    func onInit_whenDefault_isEndedIsFalse() {
+        let sut = Field()
+        
+        let isEnded = sut.isEnded
+        
+        #expect(!isEnded)
     }
 }
 
