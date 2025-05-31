@@ -104,3 +104,20 @@ struct PlayerTests {
         #expect(sut == sut)
     }
 }
+
+struct Board {
+    var fields: [Field]
+}
+
+@Suite
+struct BoardTests {
+  @Test
+  func structure_onInstantiate_hasArrayofFields() {
+    let sut = Board(fields: [])
+    let mirror = Mirror(reflecting: sut)
+    let property = mirror.children.first { $0.label == "fields" }
+
+    #expect(property != nil) // There should be a property named "fields"
+    #expect(property?.value is [Field]) // fields property should be an array of Field objects
+  }
+}
