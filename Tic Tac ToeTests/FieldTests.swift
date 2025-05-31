@@ -39,11 +39,6 @@ class Field {
 
 @Suite
 struct FieldTests {
-    @Test
-    func onInit_whenDefault_subjectIsNotNil() {
-        let sut = Field()
-        #expect(sut != nil)
-    }
     
     @Test
     func onInit_whenDefault_assignsValueAsNil() {
@@ -73,11 +68,6 @@ struct Player {
 
 @Suite
 struct PlayerTests {
-    @Test
-    func onInit_whenDefault_subjectIsNotNil() {
-        let sut = Player()
-        #expect(sut != nil)
-    }
     
     @Test
     func onSet_whenField_fieldValueIsNotNil() {
