@@ -81,7 +81,7 @@ struct PlayerTests {
         
         sut.set(field: field)
         
-        #expect(field.player != nil)
+        #expect(field.player as? Player == sut)
     }
     
     @Test
