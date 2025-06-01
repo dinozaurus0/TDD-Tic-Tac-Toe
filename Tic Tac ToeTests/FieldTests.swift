@@ -41,12 +41,16 @@ import Testing
 
 // TCR
 
-class Field {
+class Field: Equatable {
     var player: Player? = nil
     
     var isEnded: Bool {
         player != nil
     }
+
+  static func == (lhs: Field, rhs: Field) -> Bool {
+    lhs.player == rhs.player
+  }
 }
 
 @Suite
@@ -212,6 +216,12 @@ struct BoardTests {
 
     let sut = Board(height: height, width: width)
     #expect(sut.fieldAt(index: outOfRangeIndex) == nil)
+  }
+
+  @Test
+  func equatable_whenSameField_returnsTrue() {
+      let sut = Field()
+      #expect(sut == sut)
   }
 }
 
