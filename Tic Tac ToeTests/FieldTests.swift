@@ -128,7 +128,6 @@ struct Board {
   }
 
   func fieldAt(index: Int) -> Field? {
-    let returnField: Field? = nil
     if index < 0 { return returnField }
 
     return returnField
