@@ -118,6 +118,10 @@ struct Board {
   init(fieldCount: Int) {
     self.fields = Array(repeating: Field(), count: fieldCount)
   }
+
+  init(height: Int, width: Int) {
+    self.fields = Array(repeating: Field(), count: height * width)
+  }
 }
 
 @Suite
@@ -138,5 +142,15 @@ struct BoardTests {
     let sut = Board(fieldCount: number)
 
     #expect(sut.fieldCount == number)
+  }
+
+  @Test
+  func onInit_withSomeHeightAndWidth_shouldHaveFieldCout() {
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+
+    let sut = Board(height: height, width: width)
+
+    #expect(sut.fieldCount == width * height) // Assuming Board has a way to calculate fieldCount based on width and height
   }
 }
