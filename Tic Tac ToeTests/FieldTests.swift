@@ -130,6 +130,7 @@ struct Board {
   func fieldAt(index: Int) -> Field? {
     let returnField: Field? = Field()
     if index < 0 { return nil }
+    if index >= height * width { return nil }
 
     return returnField
   }
@@ -200,6 +201,17 @@ struct BoardTests {
 
     let sut = Board(height: height, width: width)
     #expect(sut.fieldAt(index: -1) == nil)
+  }
+
+  @Test
+  func onFieldAt_withIndexPositiveOutOfRange_isReturnNil() {
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+
+    let outOfRangeIndex = height * width + 1 // Index out of bounds
+
+    let sut = Board(height: height, width: width)
+    #expect(sut.fieldAt(index: outOfRangeIndex) == nil)
   }
 }
 
