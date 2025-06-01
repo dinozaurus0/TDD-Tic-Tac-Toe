@@ -118,6 +118,14 @@ struct Board {
     self.height = height
     self.width = width
   }
+
+  var isEnded: Bool {
+    var ended = true
+    for field in fields {
+      ended = ended && field.isEnded
+    }
+    return ended
+  }
 }
 
 @Suite
@@ -164,6 +172,18 @@ struct BoardTests {
     let sut = Board(height: height, width: width)
 
     #expect(sut.width == width) // Assuming Board has a way to calculate fieldCount based on width and height
+  }
+
+  @Test
+  func onInit_whenDefault_isEndedIsFalse() {
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+
+    let sut = Board(height: height, width: width)
+
+      let isEnded = sut.isEnded
+
+      #expect(!isEnded)
   }
 }
 
