@@ -128,7 +128,11 @@ struct Board {
 struct BoardTests {
   @Test
   func structure_onInstantiate_hasArrayofFields() {
-    let sut = Board(fields: [])
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+
+    let sut = Board(height: height, width: width)
+
     let mirror = Mirror(reflecting: sut)
     let property = mirror.children.first { $0.label == "fields" }
 
