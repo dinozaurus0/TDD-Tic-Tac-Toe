@@ -223,5 +223,16 @@ struct BoardTests {
       let sut = Field()
       #expect(sut == sut)
   }
+
+  @Test
+  func onFieldAt_withValidIndex_isReturnField() {
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+    let sut = Board(height: height, width: width)
+
+    let index = Int.random(in: 0..<height * width)
+
+    #expect(sut.fieldAt(index: index) == Field())
+  }
 }
 
