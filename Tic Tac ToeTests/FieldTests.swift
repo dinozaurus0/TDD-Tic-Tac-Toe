@@ -111,14 +111,6 @@ struct Board {
     fields.count
   }
 
-  init(fields: [Field]) {
-    self.fields = fields
-  }
-
-  init(fieldCount: Int) {
-    self.fields = Array(repeating: Field(), count: fieldCount)
-  }
-
   init(height: Int, width: Int) {
     self.fields = Array(repeating: Field(), count: height * width)
   }
@@ -138,14 +130,6 @@ struct BoardTests {
 
     #expect(property != nil) // There should be a property named "fields"
     #expect(property?.value is [Field]) // fields property should be an array of Field objects
-  }
-
-  @Test
-  func onInit_withSomeNumberOfFieldCount_shouldHaveFieldCount() {
-    let number = Int.random(in: 1...10)
-    let sut = Board(fieldCount: number)
-
-    #expect(sut.fieldCount == number)
   }
 
   @Test
