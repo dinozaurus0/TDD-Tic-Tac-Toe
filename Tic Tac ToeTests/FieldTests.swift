@@ -106,7 +106,10 @@ struct PlayerTests {
 }
 
 struct Board {
-    var fields: [Field]
+  var fields: [Field]
+  var fieldCount: Int {
+    fields.count
+  }
 
   init(fields: [Field]) {
     self.fields = fields
@@ -143,5 +146,13 @@ struct BoardTests {
     let sut = Board(fieldCount: number)
 
     #expect(sut.fields.count == number) // The fields array should contain the specified number of Field objects
+  }
+
+  @Test
+  func onInit_withSomeNumberOfFieldCount_shouldHaveFieldCount() {
+    let number = Int.random(in: 1...10)
+    let sut = Board(fieldCount: number)
+
+    #expect(sut.fieldCount == number)
   }
 }
