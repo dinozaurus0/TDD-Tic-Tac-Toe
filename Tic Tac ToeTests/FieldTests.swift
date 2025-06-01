@@ -126,6 +126,13 @@ struct Board {
     }
     return ended
   }
+
+  func fieldAt(index: Int) -> Field? {
+    let returnField: Field? = nil
+    if index < 0 { return returnField }
+
+    return returnField
+  }
 }
 
 @Suite
@@ -184,6 +191,15 @@ struct BoardTests {
       let isEnded = sut.isEnded
 
       #expect(!isEnded)
+  }
+
+  @Test
+  func onFieldAt_withIndexNegative_isReturnNil() {
+    let height = Int.random(in: 1...10)
+    let width = Int.random(in: 1...10)
+
+    let sut = Board(height: height, width: width)
+    #expect(sut.fieldAt(index: -1) == nil)
   }
 }
 
