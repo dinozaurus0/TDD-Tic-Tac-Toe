@@ -51,7 +51,7 @@ class Field {
     }
     
     var winner: Player? {
-        nil
+        player
     }
 }
 
@@ -111,6 +111,16 @@ struct FieldTests {
         let winner = sut.winner
         
         #expect(winner == nil)
+    }
+    
+    @Test
+    func winner_whenPlayerIsSet_isNotNill() {
+        let sut = Field()
+        sut.player = Player()
+        
+        let winner = sut.winner
+        
+        #expect(winner != nil)
     }
 }
 
