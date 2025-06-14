@@ -2,44 +2,41 @@ import Testing
 @testable import Tic_Tac_Toe
 
 /*
- The rules of the tic tac toe game are the following:
-
- a game is over when all fields are taken
- a game is over when all fields in a column are taken by a player
- a game is over when all fields in a row are taken by a player
- a game is over when all fields in a diagonal are taken by a player
- a player can take a field if not already taken
- players take turns taking fields until the game is over
- there are two player in the game (X and O)
- */
-
-/*
- 1. One field where user can introduce either X or O
- 1.1. Creating a field should be an action on its own.
- 1.2. A field can have a value/contain a value.
- 1.2.1. Make value a concrete type. ~> not implemented
- 1.3. One player can introduce a value. At this stage consider only one.
- 1.3.1. Define a player
- 1.3.2. Define the value ~> Not needed at this stage
- 1.3.3. Player can set a value
- 1.3.4. Should Field be a value or reference type?
- A field has been set by a given player?
- - Need a way to identify which player is which. (Not needed at this stage)
-    - How to determine that 2 players are equal?
- Ask a field if the game is over.
+1. RULES:
  
- 
- 1.4. Decide when the user wins a round ~> for this particular case would be only that he introduces a valid value.
- */
+- The game ends when:
+  - A full column is taken by a single player.
+  - A full row is taken by a single player.
+  - A full diagonal is taken by a single player.
+  - All fields are taken.
+
+- Players:
+  - A player can only mark an unclaimed field.
+  - There are two players: X and O.
+  - Take turns marking fields until the game ends.
 
 
-// Red - Green - Refactor ^_^
+2. STEPS:
 
-// Least amount of the step!
+- A field represents a single cell on the board.
+  - Creating a field should be an explicit action.
+  - A field can hold a value (X, O, or empty).
+    - Value should eventually be a concrete type. ~> not implemented
+        - Update: Value was implemented as a concrete type representing the `Player`.
+  - A player can assign a value to a field.
+    - Define a `Player` type.
+    - Define a method to assign a value to a field.
+    - Consider whether `Field` should be a value type or a reference type.
+        - Update: We decided to make the `Field` a class as the state of it is going to be modified during its existence. A `struct` would make the interaction with `Field` way harder. Eg: we would need to use `&inout` parameter whenever passing the field around in order for it to be mutable.
+  - A field tracks which player sets it.
+    - Identifying and comparing players is not required at this stage.
+      - Update: We implemented comparison between players by making it conform to `Equatable`.
+    - A field (or the board) should be able to check if the game is over.
+      - Update: Implemented the check to verify game is over when the player property is set.
+  - Win condition:
+    - A player takes a field.
+*/
 
-// action that triggers -- when it gets trigger -- what the result of this is
-
-// TCR
 
 class Field {
     var player: Player? = nil
