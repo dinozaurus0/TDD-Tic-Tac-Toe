@@ -36,6 +36,7 @@ import Testing
   - Win condition:
     - A player takes a field.
   - Decide the winner of the game. At this stage it would represent the only player.
+  - Introduce a column as a container for holding 2 fields.
 */
 
 
@@ -146,5 +147,23 @@ struct PlayerTests {
     func equatable_whenSamePlayer_returnsTrue() {
         let sut = Player()
         #expect(sut == sut)
+    }
+}
+
+struct Column {
+    var field: Field {
+        Field()
+    }
+}
+
+@Suite
+struct ColumnTests {
+    @Test
+    func onInit_whenDefault_fieldIsNotTakedByAnyPlayer() {
+        let sut = Column()
+        
+        let player = sut.field.player
+        
+        #expect(player == nil)
     }
 }
