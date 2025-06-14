@@ -35,6 +35,7 @@ import Testing
       - Update: Implemented the check to verify game is over when the player property is set.
   - Win condition:
     - A player takes a field.
+  - Decide the winner of the game. At this stage it would represent the only player.
 */
 
 
@@ -47,6 +48,10 @@ class Field {
     
     var isWon: Bool {
         isEnded
+    }
+    
+    var winner: Player? {
+        nil
     }
 }
 
@@ -97,6 +102,15 @@ struct FieldTests {
         let isWon = sut.isWon
         
         #expect(isWon)
+    }
+    
+    @Test
+    func winner_whenDefault_isNil() {
+        let sut = Field()
+        
+        let winner = sut.winner
+        
+        #expect(winner == nil)
     }
 }
 
