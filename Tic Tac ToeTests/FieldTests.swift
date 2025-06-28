@@ -156,14 +156,16 @@ struct PlayerTests {
 }
 
 struct Column {
-    var field: Field {
-        Field()
-    }
+    var field = Field()
     
     var field2: Field {
         Field()
     }
 }
+
+// Subscript for field
+// Is win property for the Column (isEnded, isWon, winner)
+// Being able to assign a player to a field in a column
 
 @Suite
 struct ColumnTests {
@@ -183,5 +185,15 @@ struct ColumnTests {
         let player = sut.field2.player
         
         #expect(player == nil)
+    }
+    
+    @Test
+    func onPlayerSet_whenPlayer_fieldIsTakenByPlayer() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field.player = player
+        
+        #expect(sut.field.player == player)
     }
 }
