@@ -131,9 +131,11 @@ struct FieldTests {
 }
 
 struct Player: Equatable {
-    var id: String { "X" }
+    let id: String
     
-    init(_ id: String = "") {}
+    init(_ id: String = "X") {
+        self.id = id
+    }
     
     func set(field: Field) {
         field.player = self
@@ -167,6 +169,12 @@ struct PlayerTests {
     @Test
     func onInit_whenPlayerIdIsX_playerIdIsX() {
         let playerId = "X"
+        let sut = Player(playerId)
+        #expect(sut.id == playerId)
+    }
+    
+    @Test(arguments: ["U", "V", "W", "Y", "Z"])
+    func onInit_whenPlayerIdIsVariableValue_playerIdIsTheGivenValue(_ playerId: String) {
         let sut = Player(playerId)
         #expect(sut.id == playerId)
     }
