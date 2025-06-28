@@ -131,6 +131,8 @@ struct FieldTests {
 }
 
 struct Player: Equatable {
+    var id: String { "X" }
+    
     func set(field: Field) {
         field.player = self
     }
@@ -152,6 +154,12 @@ struct PlayerTests {
     func equatable_whenSamePlayer_returnsTrue() {
         let sut = Player()
         #expect(sut == sut)
+    }
+    
+    @Test
+    func onInit_idDefaultsToX() {
+        let sut = Player()
+        #expect(sut.id == "X")
     }
 }
 
