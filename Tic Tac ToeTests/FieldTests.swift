@@ -37,11 +37,12 @@ import Testing
     - A player takes a field.
   - Decide the winner of the game. At this stage it would represent the only player.
   - Introduce a column as a container for holding 2 fields.
+  - Being able to assign a player to a field in a column
  
  Next step:
-  - Make column field persist
-  - Interaction with field or add the additional field?
-  - "What would be the reason to add a new field?"
+  - Is win property for the Column (isEnded, isWon, winner)
+  - Subscript for field
+  // Decided to go with the ended, won behaviour before the subscript ^^
 */
 
 
@@ -197,9 +198,6 @@ struct Column {
     }
 }
 
-// Subscript for field
-// Is win property for the Column (isEnded, isWon, winner)
-// Being able to assign a player to a field in a column
 
 @Suite
 struct ColumnTests {
