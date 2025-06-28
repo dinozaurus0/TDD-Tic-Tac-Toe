@@ -180,6 +180,13 @@ struct PlayerTests {
         let other = Player(playerId)
         #expect(sut == other)
     }
+    
+    @Test
+    func equatable_whenDifferentPlayersWithDifferentId_returnsFalse() {
+        let sut = Player("X")
+        let other = Player("Z")
+        #expect(sut != other)
+    }
 }
 
 struct Column {
