@@ -156,7 +156,7 @@ struct PlayerTests {
 }
 
 struct Column {
-    var field = Field()
+    var field1 = Field()
     
     var field2: Field {
         Field()
@@ -170,10 +170,10 @@ struct Column {
 @Suite
 struct ColumnTests {
     @Test
-    func onInit_whenDefault_fieldIsNotTakenByAnyPlayer() {
+    func onInit_whenDefault_field1IsNotTakenByAnyPlayer() {
         let sut = Column()
         
-        let player = sut.field.player
+        let player = sut.field1.player
         
         #expect(player == nil)
     }	
@@ -188,12 +188,12 @@ struct ColumnTests {
     }
     
     @Test
-    func onPlayerSet_whenPlayer_fieldIsTakenByPlayer() {
+    func onPlayerSet_whenPlayer_field1IsTakenByPlayer() {
         let sut = Column()
         let player = Player()
         
-        sut.field.player = player
+        sut.field1.player = player
         
-        #expect(sut.field.player == player)
+        #expect(sut.field1.player == player)
     }
 }
