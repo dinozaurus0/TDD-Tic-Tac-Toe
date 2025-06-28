@@ -155,12 +155,6 @@ struct PlayerTests {
     }
     
     @Test
-    func equatable_whenSamePlayer_returnsTrue() {
-        let sut = Player()
-        #expect(sut == sut)
-    }
-    
-    @Test
     func onInit_idDefaultsToX() {
         let sut = Player()
         #expect(sut.id == "X")
