@@ -37,6 +37,11 @@ import Testing
     - A player takes a field.
   - Decide the winner of the game. At this stage it would represent the only player.
   - Introduce a column as a container for holding 2 fields.
+ 
+ Next step:
+  - Make column field persist
+  - Interaction with field or add the additional field?
+  - "What would be the reason to add a new field?"
 */
 
 
@@ -154,15 +159,28 @@ struct Column {
     var field: Field {
         Field()
     }
+    
+    var field2: Field {
+        Field()
+    }
 }
 
 @Suite
 struct ColumnTests {
     @Test
-    func onInit_whenDefault_fieldIsNotTakedByAnyPlayer() {
+    func onInit_whenDefault_fieldIsNotTakenByAnyPlayer() {
         let sut = Column()
         
         let player = sut.field.player
+        
+        #expect(player == nil)
+    }	
+    
+    @Test
+    func onInit_whenDefault_field2IsNotTakenByAnyPlayer() {
+        let sut = Column()
+        
+        let player = sut.field2.player
         
         #expect(player == nil)
     }
