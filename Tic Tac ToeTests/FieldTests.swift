@@ -39,10 +39,17 @@ import Testing
   - Introduce a column as a container for holding 2 fields.
   - Being able to assign a player to a field in a column
  
+  - Is ended condition fully implement for column.
+  - Is won condition implement for column:
+    - when default
+    - when one player takes both fields
+ 
  Next step:
-  - Is win property for the Column (isEnded, isWon, winner)
-  - Subscript for field
-  // Decided to go with the ended, won behaviour before the subscript ^^
+  - Column.isWon:
+   - when some fields taken but not all
+   - when fields are taken by different players.
+  - winner
+  - subscript for field
 */
 
 
