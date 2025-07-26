@@ -200,7 +200,8 @@ struct Column {
     }
     
     var isWon: Bool {
-        return false
+        guard field1.player != nil else { return false }
+        return field1.player == field2.player
     }
 }
 
@@ -289,5 +290,16 @@ struct ColumnTests {
         let sut = Column()
         
         #expect(!sut.isWon)
+    }
+    
+    @Test
+    func isWon_whenAPlayerTakesBothFields_returnsTrue() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field1.player = player
+        sut.field2.player = player
+        
+        #expect(sut.isWon)
     }
 }
