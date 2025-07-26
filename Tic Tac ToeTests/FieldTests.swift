@@ -259,4 +259,14 @@ struct ColumnTests {
         
         #expect(sut.isEnded)
     }
+    
+    @Test
+    func isEnded_whenField1IsTaken_returnsFalse() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field1.player = player
+        
+        #expect(!sut.isEnded)
+    }
 }
