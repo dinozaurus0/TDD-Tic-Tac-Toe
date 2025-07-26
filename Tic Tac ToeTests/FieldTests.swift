@@ -193,9 +193,7 @@ struct PlayerTests {
 struct Column {
     var field1 = Field()
     
-    var field2: Field {
-        Field()
-    }
+    var field2 = Field()
     
     var isEnded: Bool {
         return false
@@ -232,6 +230,16 @@ struct ColumnTests {
         sut.field1.player = player
         
         #expect(sut.field1.player == player)
+    }
+    
+    @Test
+    func onPlayerSet_whenPlayer_field2IsTakenByPlayer() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field2.player = player
+        
+        #expect(sut.field2.player == player)
     }
     
     @Test
