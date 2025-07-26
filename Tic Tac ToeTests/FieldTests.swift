@@ -196,7 +196,7 @@ struct Column {
     var field2 = Field()
     
     var isEnded: Bool {
-        return false
+        return field1.isEnded && field2.isEnded
     }
 }
 
@@ -247,5 +247,16 @@ struct ColumnTests {
         let sut = Column()
         
         #expect(!sut.isEnded)
+    }
+    
+    @Test
+    func isEnded_whenBothFieldsAreTaken_returnsTrue() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field1.player = player
+        sut.field2.player = player
+        
+        #expect(sut.isEnded)
     }
 }
