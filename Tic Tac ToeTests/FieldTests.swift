@@ -196,9 +196,14 @@ struct Column {
     var field2: Field {
         Field()
     }
+    
+    var isEnded: Bool {
+        return false
+    }
 }
 
 
+// Is win property for the Column (isEnded, isWon, winner)
 @Suite
 struct ColumnTests {
     @Test
@@ -227,5 +232,12 @@ struct ColumnTests {
         sut.field1.player = player
         
         #expect(sut.field1.player == player)
+    }
+    
+    @Test
+    func isEnded_whenDefault_returnsFalse() {
+        let sut = Column()
+        
+        #expect(!sut.isEnded)
     }
 }
