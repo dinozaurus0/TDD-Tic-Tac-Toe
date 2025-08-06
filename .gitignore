@@ -1,0 +1,8 @@
+# Xcode projects
+*/**/xcuserdata/
+*.xcuserstate
+*/**/*.xcuserstate
+*/**/Breakpoints_v2.xcbkptlist
+
+# ‘Shielded’ directories – ignore entire folders with name in (parens)
+(*)/*
