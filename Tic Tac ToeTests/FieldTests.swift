@@ -212,7 +212,6 @@ struct Column {
     }
 }
 
-
 // Is win property for the Column (isWon, winner)
 @Suite
 struct ColumnTests {
@@ -318,6 +317,16 @@ struct ColumnTests {
         let player = Player()
         
         sut.field1.player = player
+        
+        #expect(!sut.isWon)
+    }
+    
+    @Test
+    func isWon_whenOnlySecondFieldIsTaken_returnsFalse() {
+        let sut = Column()
+        let player = Player()
+        
+        sut.field2.player = player
         
         #expect(!sut.isWon)
     }
