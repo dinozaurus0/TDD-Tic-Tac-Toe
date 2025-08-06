@@ -219,7 +219,10 @@ struct Column {
         return field1.player == field2.player
     }
     
-    var winner: Player?
+    var winner: Player? {
+        guard isWon else { return nil }
+        return field1.player
+    }
 }
 
 // Is win property for the Column (isWon, winner)
@@ -354,7 +357,6 @@ struct ColumnTests {
     /*
      - winner:
        - none:
-           - none of the fields are taken
            - less than all fields are taken
            - not all fields taken by the same player
      */
@@ -362,6 +364,14 @@ struct ColumnTests {
     @Test
     func winner_givenDefault_returnsNil() {
         let sut = Column()
+        
+        #expect(sut.winner == nil)
+    }
+    
+    @Test
+    func winner_givenOnlyField1PlayerHasBeenSet_returnsNil() {
+        let sut = Column()
+        sut.field1.player = Player("X")
         
         #expect(sut.winner == nil)
     }
