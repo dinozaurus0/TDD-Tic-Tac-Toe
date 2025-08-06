@@ -43,12 +43,20 @@ import Testing
   - Is won condition implement for column:
     - when default
     - when one player takes both fields
+    - when some fields taken but not all
+    - when fields are taken by different players.
+ 
  
  Next step:
-  - Column.isWon:
-   - when some fields taken but not all
-   - when fields are taken by different players.
-  - winner
+  - winner:
+    - none:
+        - none of the fields are taken
+        - less than all fields are taken
+        - not all fields taken by the same player
+    - first player:
+        - takes all fields
+    - second player:
+        - takes all fields
   - subscript for field
 */
 
