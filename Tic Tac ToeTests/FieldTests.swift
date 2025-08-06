@@ -309,7 +309,6 @@ struct ColumnTests {
         #expect(sut.isWon)
     }
     
-//    - when fields are taken by different players.
     @Test
     func isWon_whenOnlyFirstFieldIsTaken_returnsFalse() {
         let sut = Column()
