@@ -53,10 +53,7 @@ import Testing
         - none of the fields are taken
         - less than all fields are taken
         - not all fields taken by the same player
-    - first player:
-        - takes all fields
-    - second player:
-        - takes all fields
+    - fields are taken by the same player
   - subscript for field
 */
 
@@ -353,15 +350,6 @@ struct ColumnTests {
         
         #expect(!sut.isWon)
     }
-    
-    /*
-     - winner:
-       - none:
-           - less than all fields are taken:
-             - field 1 it taken
-             - field 2 it taken
-           - not all fields taken by the same player
-     */
     
     @Test
     func winner_givenDefault_returnsNil() {
