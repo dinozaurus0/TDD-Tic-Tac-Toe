@@ -45,16 +45,18 @@ import Testing
     - when one player takes both fields
     - when some fields taken but not all
     - when fields are taken by different players.
+  - winner:
+    - none:
+       - none of the fields are taken
+       - less than all fields are taken
+       - not all fields taken by the same player
+    - fields are taken by the same player
  
  
  Next step:
-  - winner:
-    - none:
-        - none of the fields are taken
-        - less than all fields are taken
-        - not all fields taken by the same player
-    - fields are taken by the same player
+  - extract structs & tests into their own files
   - subscript for field
+  
 */
 
 
