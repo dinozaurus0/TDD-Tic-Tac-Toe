@@ -220,7 +220,7 @@ struct Column {
     }
     
     var winner: Player? {
-        guard isWon else { return nil }
+        guard field1.player != nil && field2.player != nil else { return nil }
         return field1.player
     }
 }
@@ -357,7 +357,9 @@ struct ColumnTests {
     /*
      - winner:
        - none:
-           - less than all fields are taken
+           - less than all fields are taken:
+             - field 1 it taken
+             - field 2 it taken
            - not all fields taken by the same player
      */
     
@@ -372,6 +374,14 @@ struct ColumnTests {
     func winner_givenOnlyField1PlayerHasBeenSet_returnsNil() {
         let sut = Column()
         sut.field1.player = Player("X")
+        
+        #expect(sut.winner == nil)
+    }
+    
+    @Test
+    func winner_givenOnlyField2PlayerHasBeenSet_returnsNil() {
+        let sut = Column()
+        sut.field2.player = Player("X")
         
         #expect(sut.winner == nil)
     }
