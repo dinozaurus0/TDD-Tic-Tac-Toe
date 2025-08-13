@@ -382,4 +382,14 @@ struct ColumnTests {
         
         #expect(sut.winner == nil)
     }
+    
+    @Test
+    func winner_givenBothFieldsPlayerHasBeenSetWithSamePlayer_returnsPlayer() {
+        let sut = Column()
+        let player = Player("X")
+        sut.field1.player = player
+        sut.field2.player = player
+        
+        #expect(sut.winner == player)
+    }
 }
