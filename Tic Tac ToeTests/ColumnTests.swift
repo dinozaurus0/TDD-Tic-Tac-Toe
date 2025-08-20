@@ -1,4 +1,5 @@
 import Testing
+@testable import Tic_Tac_Toe	
 
 @Suite
 struct ColumnTests {

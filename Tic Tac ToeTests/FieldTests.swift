@@ -1,22 +1,6 @@
 import Testing
 @testable import Tic_Tac_Toe
 
-class Field {
-    var player: Player? = nil
-    
-    var isEnded: Bool {
-        player != nil
-    }
-    
-    var isWon: Bool {
-        isEnded
-    }
-    
-    var winner: Player? {
-        player
-    }
-}
-
 @Suite
 struct FieldTests {
     @Test
@@ -83,18 +67,6 @@ struct FieldTests {
         let winner = sut.winner
         
         #expect(winner != nil)
-    }
-}
-
-struct Player: Equatable {
-    let id: String
-    
-    init(_ id: String = "X") {
-        self.id = id
-    }
-    
-    func set(field: Field) {
-        field.player = self
     }
 }
 
