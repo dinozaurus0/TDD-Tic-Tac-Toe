@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286A01A92E562C03001D2093 /* Tasks.md in Resources */ = {isa = PBXBuildFile; fileRef = 286A01A82E562C03001D2093 /* Tasks.md */; };
 		28C6A00A2DD8984C00DD290C /* Tic_Tac_Toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C69FFF2DD8984C00DD290C /* Tic_Tac_Toe.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		286A01A82E562C03001D2093 /* Tasks.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tasks.md; sourceTree = "<group>"; };
 		28C69FFF2DD8984C00DD290C /* Tic_Tac_Toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tic_Tac_Toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28C6A0092DD8984C00DD290C /* Tic Tac ToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic Tac ToeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 		28C69FF52DD8984C00DD290C = {
 			isa = PBXGroup;
 			children = (
+				286A01A82E562C03001D2093 /* Tasks.md */,
 				28C6A0012DD8984C00DD290C /* Tic Tac Toe */,
 				28C6A00D2DD8984C00DD290C /* Tic Tac ToeTests */,
 				28C6A0002DD8984C00DD290C /* Products */,
@@ -190,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286A01A92E562C03001D2093 /* Tasks.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
