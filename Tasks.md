@@ -49,8 +49,19 @@
        - less than all fields are taken
        - not all fields taken by the same player
     - fields are taken by the same player
- 
+  - extract structs & tests into their own files
  
 ### Next step:
-  - extract structs & tests into their own files
-  - subscript for field
+  - make column conform to `Collection`:
+    - subscript
+    - startIndex
+    - endIndex
+    - index(after:)
+    - typealias Element, typealias Index
+    - add `Collection` protocol conformance
+  - add third field to column
+  
+### Future steps:
+  - have a column with more than 2 fields
+  - have a container of multiple columns
+  - ways to check rows and diagonals for win state
