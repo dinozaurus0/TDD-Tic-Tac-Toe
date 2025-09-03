@@ -78,4 +78,13 @@ struct FieldTests {
         
         #expect(sut == other)
     }
+    
+    @Test
+    func equatable_givenDefault_whenHasPlayer_areNotEqual() {
+        let sut = Field()
+        let other = Field()
+        other.player = Player()
+        
+        #expect(sut != other)
+    }
 }

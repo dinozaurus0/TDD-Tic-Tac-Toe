@@ -1,4 +1,4 @@
-class Field {
+class Field: Equatable {
     var player: Player? = nil
     
     var isEnded: Bool {
@@ -14,6 +14,6 @@ class Field {
     }
     
     static func == (lhs: Field, rhs: Field) -> Bool {
-        true
+        rhs.player == nil
     }
 }
