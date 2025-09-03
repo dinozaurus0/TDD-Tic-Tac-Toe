@@ -68,4 +68,14 @@ struct FieldTests {
         
         #expect(winner != nil)
     }
+    
+    // MARK: - Equatable
+    
+    @Test
+    func equatable_givenDefault_whenDefault_isTrue() {
+        let sut = Field()
+        let other = Field()
+        
+        #expect(sut == other)
+    }
 }

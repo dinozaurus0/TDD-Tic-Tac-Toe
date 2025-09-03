@@ -12,4 +12,8 @@ class Field {
     var winner: Player? {
         player
     }
+    
+    static func == (lhs: Field, rhs: Field) -> Bool {
+        true
+    }
 }
