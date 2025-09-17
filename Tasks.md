@@ -50,12 +50,12 @@
        - not all fields taken by the same player
     - fields are taken by the same player
   - extract structs & tests into their own files
+  
+  - before we can make `Column` conform to `Collection` we need to be able to compare 2 fields. 
+    - in order to achieve that we need to implement the equality operator on `Field`.
+    - having the equality operator enables `Field` to conform to the `Equatable` protocol. 
  
 ### Next step:
-  - before we can make `Column` conform to `Collection` we need to be able to compare 2 players. 
-    - in order to achieve that we need to implement the equality operator on `Player`.
-    - having the equality operator enables `Player` to conform to the `Equatable` protocol. 
-  
   - make column conform to `Collection`:
     - subscript
     - startIndex
