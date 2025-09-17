@@ -107,6 +107,17 @@ struct FieldTests {
         #expect(sut != other)
     }
     
+    @Test
+    func equatable_givenHasPlayerX_whenSamePlayer_areEqual() {
+        let player = Player()
+        let sut = Field()
+        sut.player = player
+        let other = Field()
+        other.player = player
+        
+        #expect(sut == other)
+    }
+    
     /*
      3. Both have players, but is the same player/players are equal ==> are equal
      */
