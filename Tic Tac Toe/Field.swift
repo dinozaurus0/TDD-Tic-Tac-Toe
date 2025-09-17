@@ -14,6 +14,6 @@ class Field: Equatable {
     }
     
     static func == (lhs: Field, rhs: Field) -> Bool {
-        rhs.player == nil && lhs.player == nil
+        lhs.player == nil && rhs.player == nil
     }
 }
