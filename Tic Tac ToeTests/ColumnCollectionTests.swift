@@ -32,4 +32,15 @@ struct ColumnCollectionTests {
         
         #expect(result == Field())
     }
+    
+    @Test
+    func subscript_givenField2HasAPlayer_whenIndex1_returnsField2() {
+        let player = Player()
+        let sut = Column()
+        sut.field2.player = player
+        
+        let result = sut[1]
+        
+        #expect(result == sut.field2)
+    }
 }
