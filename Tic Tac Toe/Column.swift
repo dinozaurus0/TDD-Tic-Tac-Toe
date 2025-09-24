@@ -8,6 +8,10 @@ struct Column {
     var field2: Field {
         fields[1]
     }
+    
+    var startIndex: Int {
+        0
+    }
    
     var isEnded: Bool {
         return field1.isEnded && field2.isEnded

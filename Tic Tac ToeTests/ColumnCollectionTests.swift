@@ -43,4 +43,11 @@ struct ColumnCollectionTests {
         
         #expect(result == sut.field2)
     }
+    
+    @Test
+    func startIndex_returns0() {
+        let sut = Column()
+        
+        #expect(sut.startIndex == 0)
+    }
 }
