@@ -1,8 +1,14 @@
 struct Column {
-    var field1 = Field()
+    private let fields = [Field(), Field()]
     
-    var field2 = Field()
+    var field1: Field {
+        fields[0]
+    }
     
+    var field2: Field {
+        fields[1]
+    }
+   
     var isEnded: Bool {
         return field1.isEnded && field2.isEnded
     }
