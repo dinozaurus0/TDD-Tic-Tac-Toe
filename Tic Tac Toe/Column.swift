@@ -18,6 +18,6 @@ struct Column {
     }
     
     subscript(position: Int) -> Field {
-       Field()
+        field1
     }
 }

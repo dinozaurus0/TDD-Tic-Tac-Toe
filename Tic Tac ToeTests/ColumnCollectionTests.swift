@@ -11,4 +11,20 @@ struct ColumnCollectionTests {
         
         #expect(result == Field())
     }
+    
+    @Test
+    func subscript_givenField1HasAPlayer_whenIndex0_returnsField1() {
+        let player = Player()
+        let sut = Column()
+        sut.field1.player = player
+        
+        let result = sut[0]
+        
+        #expect(result == sut.field1)
+    }
 }
+
+/*
+ 2. Subscript is other than zero
+ 1. When the field is not the default one ~> Has a player set on it
+ */
