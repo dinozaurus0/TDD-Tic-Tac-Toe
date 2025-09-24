@@ -50,4 +50,11 @@ struct ColumnCollectionTests {
         
         #expect(sut.startIndex == 0)
     }
+    
+    @Test
+    func endIndex_returns2() {
+        let sut = Column()
+        
+        #expect(sut.endIndex == 2)
+    }
 }
