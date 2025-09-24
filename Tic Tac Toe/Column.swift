@@ -18,6 +18,7 @@ struct Column {
     }
     
     subscript(position: Int) -> Field {
-        field1
+        guard position == 0 else { return Field() }
+        return field1
     }
 }
