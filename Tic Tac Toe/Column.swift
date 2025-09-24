@@ -16,4 +16,8 @@ struct Column {
         guard isWon else { return nil }
         return field1.player
     }
+    
+    subscript(position: Int) -> Field {
+       Field()
+    }
 }
