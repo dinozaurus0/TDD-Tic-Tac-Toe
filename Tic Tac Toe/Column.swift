@@ -1,19 +1,22 @@
 struct Column {
-    private let fields = [Field(), Field()]
+    typealias Element = Field
+    typealias Index = Int
     
-    var field1: Field {
+    private let fields = [Element(), Element()]
+    
+    var field1: Element {
         fields[0]
     }
     
-    var field2: Field {
+    var field2: Element {
         fields[1]
     }
     
-    var startIndex: Int {
+    var startIndex: Index {
         0
     }
     
-    var endIndex: Int {
+    var endIndex: Index {
         2
     }
    
@@ -31,12 +34,12 @@ struct Column {
         return field1.player
     }
     
-    subscript(position: Int) -> Field {
+    subscript(position: Index) -> Element {
         guard position == 0 else { return field2 }
         return field1
     }
     
-    func index(after i: Int) -> Int {
+    func index(after i: Index) -> Index {
         i + 1
     }
 }
