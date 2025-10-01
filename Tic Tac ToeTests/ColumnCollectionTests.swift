@@ -75,4 +75,14 @@ struct ColumnCollectionTests {
         
         #expect(result == 2)
     }
+    
+    @Test
+    func indexAfter_when100_returns101() {
+        let sut = Column()
+        
+        let result = sut.index(after: 100)
+        
+        #expect(result == 101)
+    }
+    
 }

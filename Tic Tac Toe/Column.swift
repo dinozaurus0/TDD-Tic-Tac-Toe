@@ -37,10 +37,6 @@ struct Column {
     }
     
     func index(after i: Int) -> Int {
-        if i > 0 {
-            return 2
-        }
-        
-        return 1
+        i + 1
     }
 }
