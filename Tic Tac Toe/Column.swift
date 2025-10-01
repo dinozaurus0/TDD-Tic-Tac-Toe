@@ -35,4 +35,8 @@ struct Column {
         guard position == 0 else { return field2 }
         return field1
     }
+    
+    func index(after i: Int) -> Int {
+        return 1
+    }
 }
