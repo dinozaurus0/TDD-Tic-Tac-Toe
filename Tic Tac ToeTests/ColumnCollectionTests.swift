@@ -66,4 +66,13 @@ struct ColumnCollectionTests {
         
         #expect(result == 1)
     }
+    
+    @Test
+    func indexAfter_when1_returns2() {
+        let sut = Column()
+        
+        let result = sut.index(after: 1)
+        
+        #expect(result == 2)
+    }
 }
