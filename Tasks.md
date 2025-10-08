@@ -54,8 +54,7 @@
   - before we can make `Column` conform to `Collection` we need to be able to compare 2 fields. 
     - in order to achieve that we need to implement the equality operator on `Field`.
     - having the equality operator enables `Field` to conform to the `Equatable` protocol. 
- 
-### Next step:
+    
   - make column conform to `Collection`:
     - subscript
     - startIndex
@@ -63,6 +62,10 @@
     - index(after:)
     - typealias Element, typealias Index
     - add `Collection` protocol conformance
+ 
+### Next step:
+    - ⬇️ 
+  - `Column` isWon should be refactor to check only the fields equality  
   - add third field to column
   
 ### Future steps:

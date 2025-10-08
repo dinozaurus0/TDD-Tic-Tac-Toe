@@ -1,4 +1,4 @@
-struct Column {
+struct Column: Collection {
     typealias Element = Field
     typealias Index = Int
     

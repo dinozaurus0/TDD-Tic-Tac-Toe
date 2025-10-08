@@ -85,4 +85,14 @@ struct ColumnCollectionTests {
         #expect(result == 101)
     }
     
+    @Test
+    func column_conformsToCollectionProtocol() {
+        let sut = Column()
+        
+        // Anything that conforms to `Collection` gets the `count` computed property, which we use to determine the `Collection` conformance. 
+        // If `count` gets implemented directly on `Column` this test will no longer be accurate.
+        let result = sut.count
+        
+        #expect(result == 2)
+    }
 }
