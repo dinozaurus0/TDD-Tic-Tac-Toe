@@ -35,8 +35,8 @@ struct Column: Collection {
     }
     
     subscript(position: Index) -> Element {
-        guard position == 0 else { return field2 }
-        return field1
+        guard position == 0 else { return fields[1] }
+        return fields[0]
     }
     
     func index(after i: Index) -> Index {
