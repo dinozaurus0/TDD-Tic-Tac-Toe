@@ -21,7 +21,7 @@ struct Column: Collection {
     }
    
     var isEnded: Bool {
-        return field1.isEnded && field2.isEnded
+        return fields[0].isEnded && fields[1].isEnded
     }
     
     var isWon: Bool {
