@@ -7,7 +7,7 @@ struct ColumnTests {
     func onInit_whenDefault_field1IsNotTakenByAnyPlayer() {
         let sut = Column()
         
-        let player = sut.field1.player
+        let player = sut[0].player
         
         #expect(player == nil)
     }
@@ -16,7 +16,7 @@ struct ColumnTests {
     func onInit_whenDefault_field2IsNotTakenByAnyPlayer() {
         let sut = Column()
         
-        let player = sut.field2.player
+        let player = sut[1].player
         
         #expect(player == nil)
     }
@@ -26,9 +26,9 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field1.player = player
+        sut[0].player = player
         
-        #expect(sut.field1.player == player)
+        #expect(sut[0].player == player)
     }
     
     @Test
@@ -36,9 +36,9 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field2.player = player
+        sut[1].player = player
         
-        #expect(sut.field2.player == player)
+        #expect(sut[1].player == player)
     }
     
     @Test
@@ -53,28 +53,28 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field1.player = player
-        sut.field2.player = player
+        sut[0].player = player
+        sut[1].player = player
         
         #expect(sut.isEnded)
     }
     
     @Test
-    func isEnded_whenField1IsTaken_returnsFalse() {
+    func isEnded_whenFirstFieldIsTaken_returnsFalse() {
         let sut = Column()
         let player = Player()
         
-        sut.field1.player = player
+        sut[0].player = player
         
         #expect(!sut.isEnded)
     }
     
     @Test
-    func isEnded_whenField2IsTaken_returnsFalse() {
+    func isEnded_whenSecondFieldIsTaken_returnsFalse() {
         let sut = Column()
         let player = Player()
         
-        sut.field2.player = player
+        sut[1].player = player
         
         #expect(!sut.isEnded)
     }
@@ -91,8 +91,8 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field1.player = player
-        sut.field2.player = player
+        sut[0].player = player
+        sut[1].player = player
         
         #expect(sut.isWon)
     }
@@ -102,7 +102,7 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field1.player = player
+        sut[0].player = player
         
         #expect(!sut.isWon)
     }
@@ -112,7 +112,7 @@ struct ColumnTests {
         let sut = Column()
         let player = Player()
         
-        sut.field2.player = player
+        sut[1].player = player
         
         #expect(!sut.isWon)
     }
@@ -123,8 +123,8 @@ struct ColumnTests {
         let player = Player("X")
         let otherPlayer = Player("Y")
         
-        sut.field1.player = player
-        sut.field2.player = otherPlayer
+        sut[0].player = player
+        sut[1].player = otherPlayer
         
         #expect(!sut.isWon)
     }
@@ -137,17 +137,17 @@ struct ColumnTests {
     }
     
     @Test
-    func winner_givenOnlyField1PlayerHasBeenSet_returnsNil() {
+    func winner_givenOnlyFirstFieldPlayerHasBeenSet_returnsNil() {
         let sut = Column()
-        sut.field1.player = Player("X")
+        sut[0].player = Player("X")
         
         #expect(sut.winner == nil)
     }
     
     @Test
-    func winner_givenOnlyField2PlayerHasBeenSet_returnsNil() {
+    func winner_givenOnlySecondFieldPlayerHasBeenSet_returnsNil() {
         let sut = Column()
-        sut.field2.player = Player("X")
+        sut[1].player = Player("X")
         
         #expect(sut.winner == nil)
     }
@@ -155,8 +155,8 @@ struct ColumnTests {
     @Test
     func winner_givenBothFieldsPlayerHasBeenSetWithDifferentPlayers_returnsNil() {
         let sut = Column()
-        sut.field1.player = Player("X")
-        sut.field2.player = Player("Y")
+        sut[0].player = Player("X")
+        sut[1].player = Player("Y")
         
         #expect(sut.winner == nil)
     }
@@ -165,8 +165,8 @@ struct ColumnTests {
     func winner_givenBothFieldsPlayerHasBeenSetWithSamePlayer_returnsPlayer() {
         let sut = Column()
         let player = Player("X")
-        sut.field1.player = player
-        sut.field2.player = player
+        sut[0].player = player
+        sut[1].player = player
         
         #expect(sut.winner == player)
     }
