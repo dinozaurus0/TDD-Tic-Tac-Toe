@@ -26,7 +26,7 @@ struct Column: Collection {
     
     var isWon: Bool {
         guard field1.player != nil else { return false }
-        return field1.player == field2.player
+        return field1 == field2
     }
     
     var winner: Player? {

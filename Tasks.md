@@ -62,10 +62,11 @@
     - index(after:)
     - typealias Element, typealias Index
     - add `Collection` protocol conformance
+    
+  - `Column` isWon should be refactor to check only the fields equality 
  
 ### Next step:
-    - ⬇️ 
-  - `Column` isWon should be refactor to check only the fields equality  
+  - ⬇️ 
   - add third field to column
   
 ### Future steps:
