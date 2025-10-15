@@ -13,20 +13,20 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func subscript_givenField1HasAPlayer_whenIndex0_returnsField1() {
+    func subscript_givenFirstFieldHasAPlayer_whenIndex0_returnsFirstField() {
         let player = Player()
         let sut = Column()
-        sut.field1.player = player
+        sut[0].player = player
         
         let result = sut[0]
         
-        #expect(result == sut.field1)
+        #expect(result == sut[0])
     }
     
     @Test
-    func subscript_givenField1HasAPlayer_whenIndex1_returnsDefaultField() {
+    func subscript_givenFirstFieldHasAPlayer_whenIndex1_returnsDefaultField() {
         let sut = Column()
-        sut.field1.player = Player()
+        sut[0].player = Player()
         
         let result = sut[1]
         
@@ -34,14 +34,14 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func subscript_givenField2HasAPlayer_whenIndex1_returnsField2() {
+    func subscript_givenSecondFieldHasAPlayer_whenIndex1_returnsSecondField() {
         let player = Player()
         let sut = Column()
-        sut.field2.player = player
+        sut[1].player = player
         
         let result = sut[1]
         
-        #expect(result == sut.field2)
+        #expect(result == sut[1])
     }
     
     @Test
