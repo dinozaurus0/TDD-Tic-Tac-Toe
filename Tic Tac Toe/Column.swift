@@ -5,7 +5,7 @@ struct Column: Collection {
     private let fields = [Element(), Element()]
   
     var startIndex: Index {
-        0
+        fields.startIndex
     }
     
     var endIndex: Index {
