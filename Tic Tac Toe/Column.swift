@@ -9,7 +9,7 @@ struct Column: Collection {
     }
     
     var endIndex: Index {
-        2
+        fields.endIndex
     }
    
     var isEnded: Bool {
