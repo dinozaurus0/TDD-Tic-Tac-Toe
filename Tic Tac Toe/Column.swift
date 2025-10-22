@@ -13,7 +13,8 @@ struct Column: Collection {
     }
    
     var isEnded: Bool {
-        return fields[0].isEnded && fields[1].isEnded
+        let hasNonEndedField = fields.first(where: { !$0.isEnded })
+        return hasNonEndedField == nil
     }
     
     var isWon: Bool {
