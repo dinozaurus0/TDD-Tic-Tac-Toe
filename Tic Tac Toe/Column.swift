@@ -16,12 +16,17 @@ struct Column: Collection {
         let hasNonEndedField = fields.first(where: { !$0.isEnded })
         return hasNonEndedField == nil
     }
-    
+
     var isWon: Bool {
-        guard fields[0].player != nil else { return false }
-        return fields[0] == fields[1]
+        let firstField = fields.first
+        guard let player = firstField?.player else { return false }
+
+        let remainingFields = fields.dropFirst()
+        let hasDifferentPlayer = remainingFields.first { $0.player != player }
+        let allPlayersSame = hasDifferentPlayer == nil
+        return allPlayersSame
     }
-    
+
     var winner: Player? {
         guard isWon else { return nil }
         return fields[0].player
