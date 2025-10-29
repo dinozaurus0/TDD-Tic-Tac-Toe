@@ -67,7 +67,14 @@
  
 ### Next step:
   - ⬇️ 
+  - Refactor functions & computed properties to be dependent on fields array 
+  
   - add third field to column
+   - changing the init of Column to receive the number of fields
+   - remove field1 & field2 which forces callers to use subscript
+   - change fields list to add a new element
+   - change the initialisation of the fields property (repeating init)
+   - update endIndex, isEnded, isWon, subscript
   
 ### Future steps:
   - have a column with more than 2 fields
