@@ -33,6 +33,9 @@ struct Column: Collection {
     }
     
     subscript(position: Index) -> Element {
+        assert(position >= startIndex, "Position \(position) less than start index \(startIndex)")
+        assert(position < endIndex, "Position \(position) greater than end index \(endIndex)")
+        
         guard position == 0 else { return fields[1] }
         return fields[0]
     }
