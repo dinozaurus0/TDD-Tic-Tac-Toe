@@ -29,7 +29,7 @@ struct Column: Collection {
 
     var winner: Player? {
         guard isWon else { return nil }
-        return fields[0].player
+        return fields.first?.player
     }
     
     subscript(position: Index) -> Element {
