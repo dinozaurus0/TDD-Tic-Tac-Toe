@@ -63,12 +63,12 @@
     - typealias Element, typealias Index
     - add `Collection` protocol conformance
     
-  - `Column` isWon should be refactor to check only the fields equality 
+  - `Column` isWon should be refactor to check only the fields equality
+  
+  - Refactor functions & computed properties to be dependent on fields array  
  
 ### Next step:
   - ⬇️ 
-  - Refactor functions & computed properties to be dependent on fields array 
-  
   - add third field to column
    - changing the init of Column to receive the number of fields
    - remove field1 & field2 which forces callers to use subscript
@@ -80,3 +80,7 @@
   - have a column with more than 2 fields
   - have a container of multiple columns
   - ways to check rows and diagonals for win state
+  
+  Future sessions(2-3 months or more ^^):
+  - manual mutation testing
+  - setup automated mutation tool (like Muter) 
