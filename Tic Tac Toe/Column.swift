@@ -39,7 +39,7 @@ struct Column: Collection {
         return fields[position]
     }
     
-    func index(after i: Index) -> Index {
-        i + 1
+    func index(after position: Index) -> Index {
+        fields.index(after: position)
     }
 }
