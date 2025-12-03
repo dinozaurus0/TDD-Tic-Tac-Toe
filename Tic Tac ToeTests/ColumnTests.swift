@@ -49,12 +49,13 @@ struct ColumnTests {
     }
     
     @Test
-    func isEnded_whenBothFieldsAreTaken_returnsTrue() {
+    func isEnded_whenAllFieldsAreTakenByTheSamePlayer_returnsTrue() {
         let sut = Column()
         let player = Player()
         
-        sut[0].player = player
-        sut[1].player = player
+        sut.forEach { field in
+            field.player = player
+        }
         
         #expect(sut.isEnded)
     }
@@ -87,12 +88,13 @@ struct ColumnTests {
     }
     
     @Test
-    func isWon_whenAPlayerTakesBothFields_returnsTrue() {
+    func isWon_whenAPlayerTakesAllFields_returnsTrue() {
         let sut = Column()
         let player = Player()
         
-        sut[0].player = player
-        sut[1].player = player
+        sut.forEach { field in
+            field.player = player
+        }
         
         #expect(sut.isWon)
     }
@@ -118,13 +120,13 @@ struct ColumnTests {
     }
     
     @Test
-    func isWon_whenBothFieldsAreTakenByDifferentPlayers_returnsFalse() {
+    func isWon_whenAllFieldsAreTakenByMultiplePlayers_returnsFalse() {
         let sut = Column()
-        let player = Player("X")
-        let otherPlayer = Player("Y")
         
-        sut[0].player = player
-        sut[1].player = otherPlayer
+        sut.forEach { field in
+            field.player = Player("X")
+        }
+        sut[0].player = Player("Y")
         
         #expect(!sut.isWon)
     }
@@ -153,22 +155,26 @@ struct ColumnTests {
     }
     
     @Test
-    func winner_givenBothFieldsPlayerHasBeenSetWithDifferentPlayers_returnsNil() {
+    func winner_givenAllFieldsHaveAPlayerWithMultiplePlayers_returnsNil() {
         let sut = Column()
-        sut[0].player = Player("X")
-        sut[1].player = Player("Y")
+        
+        sut.forEach { field in
+            field.player = Player("X")
+        }
+        sut[0].player = Player("Y")
         
         #expect(sut.winner == nil)
     }
     
     @Test
-    func winner_givenBothFieldsPlayerHasBeenSetWithSamePlayer_returnsPlayer() {
+    func winner_givenAllFieldsHaveSamePlayerAssigned_returnsPlayer() {
         let sut = Column()
         let player = Player("X")
-        sut[0].player = player
-        sut[1].player = player
+        
+        sut.forEach { field in
+            field.player = player
+        }
         
         #expect(sut.winner == player)
     }
 }
-
