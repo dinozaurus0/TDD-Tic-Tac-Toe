@@ -52,10 +52,10 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func endIndex_returns2() {
+    func endIndex_returnsPositionAfterTheLastElement() {
         let sut = Column()
         
-        #expect(sut.endIndex == 2)
+        #expect(sut.endIndex == sut.count)
     }
     
     @Test
@@ -93,6 +93,6 @@ struct ColumnCollectionTests {
         // If `count` gets implemented directly on `Column` this test will no longer be accurate.
         let result = sut.count
         
-        #expect(result == 2)
+        #expect(result == sut.endIndex)
     }
 }
