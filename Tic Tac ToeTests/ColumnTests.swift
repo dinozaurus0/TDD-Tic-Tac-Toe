@@ -4,6 +4,13 @@ import Testing
 @Suite
 struct ColumnTests {
     @Test
+    func columnMustHaveAtLeast2Fields() {
+        let sut = Column()
+        
+        #expect(sut.count > 1)
+    }
+    
+    @Test
     func onInit_whenDefault_field1IsNotTakenByAnyPlayer() {
         let sut = Column()
         
