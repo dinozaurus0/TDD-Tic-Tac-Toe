@@ -66,15 +66,14 @@
   - `Column` isWon should be refactor to check only the fields equality
   
   - Refactor functions & computed properties to be dependent on fields array  
+  
+  - Refactor column tests to make it easier to change fields. 
+  - Change the initialisation of the fields property to have 3 fields instead of 2.
  
 ### Next step:
   - ⬇️ 
-  - add third field to column
-   - changing the init of Column to receive the number of fields
-   - remove field1 & field2 which forces callers to use subscript
-   - change fields list to add a new element
-   - change the initialisation of the fields property (repeating init)
-   - update endIndex, isEnded, isWon, subscript
+   - Column repeating init 
+   - Add Test: isEnded is taken by different players
   
 ### Future steps:
   - have a column with more than 2 fields
@@ -84,3 +83,5 @@
   Future sessions(2-3 months or more ^^):
   - manual mutation testing
   - setup automated mutation tool (like Muter) 
+
+OBS screen recording 
