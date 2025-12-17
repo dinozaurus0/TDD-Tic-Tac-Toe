@@ -11,6 +11,13 @@ struct ColumnTests {
     }
     
     @Test
+    func onInit_shouldHave3Fields() {
+        let sut = Column()
+        
+        #expect(sut.count == 3)
+    }
+    
+    @Test
     func onInit_whenDefault_field1IsNotTakenByAnyPlayer() {
         let sut = Column()
         
