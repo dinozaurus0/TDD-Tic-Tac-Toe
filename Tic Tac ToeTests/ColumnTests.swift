@@ -4,7 +4,7 @@ import Testing
 @Suite
 struct ColumnTests {
     @Test
-    func columnMustHaveAtLeast2Fields() {
+    func onInit_columnMustHaveAtLeast2Fields() {
         let sut = Column()
         
         #expect(sut.count > 1)
