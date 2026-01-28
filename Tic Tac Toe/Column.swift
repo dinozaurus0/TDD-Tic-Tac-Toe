@@ -2,7 +2,9 @@ struct Column: Collection {
     typealias Element = Field
     typealias Index = Int
     
-    private let fields = [Element(), Element(), Element()]
+    private static let size = 3
+    
+    private let fields = (0..<size).map { _ in Element() }
   
     var startIndex: Index {
         fields.startIndex
