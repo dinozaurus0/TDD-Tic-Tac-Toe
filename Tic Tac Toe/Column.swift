@@ -4,7 +4,9 @@ struct Column: Collection {
     
     private static let size = 3
     
-    private let fields = (0..<size).map { _ in Element() }
+    private let fields = Array(size: size) {
+        Element()
+    }
   
     var startIndex: Index {
         fields.startIndex
