@@ -95,6 +95,20 @@ struct ColumnTests {
     }
     
     @Test
+    func isEnded_whenAllFieldsAreTakenByDifferentPlayers_returnsTrue() {
+        let sut = Column()
+        let player1 = Player("X")
+        let player2 = Player("O")
+        
+        sut.forEach { field in
+            field.player = player1
+        }
+        sut.first?.player = player2
+        
+        #expect(sut.isEnded)
+    }
+    
+    @Test
     func isWon_whenDefault_returnsFalse() {
         let sut = Column()
         
