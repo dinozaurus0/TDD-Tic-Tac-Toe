@@ -5,7 +5,7 @@ class Field: Equatable {
         player != nil
     }
     
-    var winner: Player? {
+    var taker: Player? {
         player
     }
     

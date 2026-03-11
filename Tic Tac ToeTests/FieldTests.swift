@@ -32,22 +32,22 @@ struct FieldTests {
     }
     
     @Test
-    func winner_whenDefault_isNil() {
+    func taker_whenDefault_isNil() {
         let sut = Field()
         
-        let winner = sut.winner
+        let taker = sut.taker
         
-        #expect(winner == nil)
+        #expect(taker == nil)
     }
     
     @Test
-    func winner_whenPlayerIsSet_isNotNill() {
+    func taker_whenPlayerIsSet_isNotNill() {
         let sut = Field()
         sut.player = Player()
         
-        let winner = sut.winner
+        let taker = sut.taker
         
-        #expect(winner != nil)
+        #expect(taker != nil)
     }
     
     // MARK: - Equatable
