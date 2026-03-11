@@ -32,25 +32,6 @@ struct FieldTests {
     }
     
     @Test
-    func isWon_whenDefault_IsFalse() {
-        let sut = Field()
-        
-        let isWon = sut.isWon
-        
-        #expect(!isWon)
-    }
-    
-    @Test
-    func isWon_whenPlayerIsSet_isTrue() {
-        let sut = Field()
-        sut.player = Player()
-        
-        let isWon = sut.isWon
-        
-        #expect(isWon)
-    }
-    
-    @Test
     func winner_whenDefault_isNil() {
         let sut = Field()
         

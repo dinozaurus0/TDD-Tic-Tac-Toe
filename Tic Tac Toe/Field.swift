@@ -5,10 +5,6 @@ class Field: Equatable {
         player != nil
     }
     
-    var isWon: Bool {
-        isEnded
-    }
-    
     var winner: Player? {
         player
     }
