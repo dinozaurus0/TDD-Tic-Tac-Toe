@@ -60,6 +60,16 @@ struct FieldTests {
         #expect(sut.taker == player)
     }
     
+    @Test
+    func take_whenPlayerO_takerIsAssignedPlayerO() {
+        let sut = Field()
+        let player = Player("O")
+        
+        sut.take(player)
+        
+        #expect(sut.taker == player)
+    }
+    
     // MARK: - Equatable
     
     @Test

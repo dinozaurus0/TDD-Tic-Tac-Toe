@@ -10,7 +10,7 @@ class Field: Equatable {
     }
     
     func take(_ player: Player) {
-        self.player = Player()
+        self.player = player
     }
     
     static func == (lhs: Field, rhs: Field) -> Bool {
