@@ -70,6 +70,18 @@ struct FieldTests {
         #expect(sut.taker == player)
     }
     
+    @Test
+    func take_givenFieldIsTaken_whenDifferentPlayer_leavesTakerUnchanged() {
+        let sut = Field()
+        let originalPlayer = Player()
+        sut.take(originalPlayer)
+        let player = Player("O")
+        
+        sut.take(player)
+        
+        #expect(sut.taker == originalPlayer)
+    }
+    
     // MARK: - Equatable
     
     @Test
