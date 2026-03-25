@@ -17,7 +17,7 @@ struct Column: Collection {
     }
    
     var isEnded: Bool {
-        let hasEmptyField = fields.first(where: { !$0.isEnded })
+        let hasEmptyField = fields.first(where: { !$0.isTaken })
         return hasEmptyField == nil
     }
 

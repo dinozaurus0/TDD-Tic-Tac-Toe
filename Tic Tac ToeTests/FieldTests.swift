@@ -13,22 +13,22 @@ struct FieldTests {
     }
     
     @Test
-    func onInit_whenDefault_isEndedIsFalse() {
+    func onInit_whenDefault_isTakenIsFalse() {
         let sut = Field()
         
-        let isEnded = sut.isEnded
+        let isTaken = sut.isTaken
         
-        #expect(!isEnded)
+        #expect(!isTaken)
     }
     
     @Test
-    func isEnded_whenPlayerIsSet_isEndedIsTrue() {
+    func isTaken_whenPlayerIsSet_isTakenIsTrue() {
         let sut = Field()
         sut.player = Player()
         
-        let isEnded = sut.isEnded
+        let isTaken = sut.isTaken
         
-        #expect(isEnded)
+        #expect(isTaken)
     }
     
     @Test

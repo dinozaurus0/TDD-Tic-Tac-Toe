@@ -1,7 +1,7 @@
 class Field: Equatable {
     var player: Player? = nil
     
-    var isEnded: Bool {
+    var isTaken: Bool {
         player != nil
     }
     
