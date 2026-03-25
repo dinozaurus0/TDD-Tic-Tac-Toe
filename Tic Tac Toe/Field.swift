@@ -9,6 +9,10 @@ class Field: Equatable {
         player
     }
     
+    func take(_ player: Player) {
+        self.player = Player()
+    }
+    
     static func == (lhs: Field, rhs: Field) -> Bool {
         lhs.player == rhs.player
     }
