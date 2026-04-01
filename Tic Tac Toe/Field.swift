@@ -10,7 +10,9 @@ class Field: Equatable {
     }
     
     func take(_ player: Player) throws {
-        guard !isTaken else { return }
+        guard !isTaken else {
+            throw TicTacToeError.fieldIsTaken
+        }
         self.player = player
     }
     
