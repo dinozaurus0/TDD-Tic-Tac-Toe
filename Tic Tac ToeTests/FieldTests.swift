@@ -94,6 +94,17 @@ struct FieldTests {
         }
     }
     
+    @Test
+    func take_givenFieldIsTaken_whenSamePlayer_throwsError() throws {
+        let sut = Field()
+        let player = Player()
+        try sut.take(player)
+        
+        #expect(throws: TicTacToeError.fieldIsTaken) {
+            try sut.take(player)
+        }
+    }
+    
     // MARK: - Equatable
     
     @Test
