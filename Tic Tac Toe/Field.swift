@@ -9,7 +9,7 @@ class Field: Equatable {
         player
     }
     
-    func take(_ player: Player) {
+    func take(_ player: Player) throws {
         guard !isTaken else { return }
         self.player = player
     }

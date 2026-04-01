@@ -51,33 +51,33 @@ struct FieldTests {
     }
     
     @Test
-    func take_whenPlayer_takerIsAssigned() {
+    func take_whenPlayer_takerIsAssigned() throws {
         let sut = Field()
         let player = Player()
         
-        sut.take(player)
+        try sut.take(player)
         
         #expect(sut.taker == player)
     }
     
     @Test
-    func take_whenPlayerO_takerIsAssignedPlayerO() {
+    func take_whenPlayerO_takerIsAssignedPlayerO() throws {
         let sut = Field()
         let player = Player("O")
         
-        sut.take(player)
+        try sut.take(player)
         
         #expect(sut.taker == player)
     }
     
     @Test
-    func take_givenFieldIsTaken_whenDifferentPlayer_leavesTakerUnchanged() {
+    func take_givenFieldIsTaken_whenDifferentPlayer_leavesTakerUnchanged() throws {
         let sut = Field()
         let originalPlayer = Player()
-        sut.take(originalPlayer)
+        try sut.take(originalPlayer)
         let player = Player("O")
         
-        sut.take(player)
+        try sut.take(player)
         
         #expect(sut.taker == originalPlayer)
     }
