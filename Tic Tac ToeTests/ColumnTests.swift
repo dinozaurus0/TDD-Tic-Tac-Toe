@@ -100,10 +100,10 @@ struct ColumnTests {
         let player1 = Player("X")
         let player2 = Player("O")
         
-        try sut.forEach { field in
-            try field.take(player1)
-        }
         try sut.first?.take(player2)
+        try (1..<sut.endIndex).forEach { index in
+            try sut[index].take(player1)
+        }
         
         #expect(sut.isEnded)
     }
@@ -151,10 +151,10 @@ struct ColumnTests {
     func isWon_whenAllFieldsAreTakenByMultiplePlayers_returnsFalse() throws {
         let sut = Column()
         
-        try sut.forEach { field in
-            try field.take(Player("X"))
+        try sut.first?.take(Player("Y"))
+        try (1..<sut.endIndex).forEach { index in
+            try sut[index].take(Player("X"))
         }
-        try sut[0].take(Player("Y"))
         
         #expect(!sut.isWon)
     }
@@ -186,10 +186,10 @@ struct ColumnTests {
     func winner_givenAllFieldsHaveAPlayerWithMultiplePlayers_returnsNil() throws {
         let sut = Column()
         
-        try sut.forEach { field in
-            try field.take(Player("X"))
+        try sut.first?.take(Player("Y"))
+        try (1..<sut.endIndex).forEach { index in
+            try sut[index].take(Player("X"))
         }
-        try sut[0].take(Player("Y"))
         
         #expect(sut.winner == nil)
     }
