@@ -77,6 +77,7 @@ struct FieldTests {
         try sut.take(originalPlayer)
         let player = Player("O")
         
+        // An error will be thrown but we don't care about that for this test.
         try? sut.take(player)
         
         #expect(sut.taker == originalPlayer)
