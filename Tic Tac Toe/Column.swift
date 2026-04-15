@@ -23,17 +23,17 @@ struct Column: Collection {
 
     var isWon: Bool {
         let firstField = fields.first
-        guard let player = firstField?.player else { return false }
+        guard let player = firstField?.taker else { return false }
 
         let remainingFields = fields.dropFirst()
-        let hasDifferentPlayer = remainingFields.first { $0.player != player }
+        let hasDifferentPlayer = remainingFields.first { $0.taker != player }
         let allPlayersSame = hasDifferentPlayer == nil
         return allPlayersSame
     }
 
     var winner: Player? {
         guard isWon else { return nil }
-        return fields.first?.player
+        return fields.first?.taker
     }
     
     subscript(position: Index) -> Element {
