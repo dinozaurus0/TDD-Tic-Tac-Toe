@@ -7,7 +7,7 @@ struct FieldTests {
     func onInit_whenDefault_assignsValueAsNil() {
         let sut = Field()
         
-        let value = sut.player
+        let value = sut.taker
         
         #expect(value == nil)
     }
@@ -22,9 +22,9 @@ struct FieldTests {
     }
     
     @Test
-    func isTaken_whenPlayerIsSet_isTakenIsTrue() {
+    func isTaken_whenPlayerIsSet_isTakenIsTrue() throws {
         let sut = Field()
-        sut.player = Player()
+        try sut.take(Player())
         
         let isTaken = sut.isTaken
         
@@ -41,9 +41,9 @@ struct FieldTests {
     }
     
     @Test
-    func taker_whenPlayerIsSet_isNotNill() {
+    func taker_whenPlayerIsSet_isNotNill() throws {
         let sut = Field()
-        sut.player = Player()
+        try sut.take(Player())
         
         let taker = sut.taker
         
@@ -117,51 +117,51 @@ struct FieldTests {
     }
     
     @Test
-    func equatable_givenDefault_whenHasPlayer_areNotEqual() {
+    func equatable_givenDefault_whenHasPlayer_areNotEqual() throws {
         let sut = Field()
         let other = Field()
-        other.player = Player()
+        try other.take(Player())
         
         #expect(sut != other)
     }
     
     @Test
-    func equatable_givenHasPlayer_whenDefault_areNotEqual() {
+    func equatable_givenHasPlayer_whenDefault_areNotEqual() throws {
         let sut = Field()
-        sut.player = Player()
+        try sut.take(Player())
         let other = Field()
         
         #expect(sut != other)
     }
     
     @Test
-    func equatable_givenHasPlayer_whenHasDifferentPlayer_areNotEqual() {
+    func equatable_givenHasPlayer_whenHasDifferentPlayer_areNotEqual() throws {
         let sut = Field()
-        sut.player = Player("O")
+        try sut.take(Player("O"))
         let other = Field()
-        other.player = Player("X")
+        try other.take(Player("X"))
         
         #expect(sut != other)
     }
     
     @Test
-    func equatable_givenHasPlayerX_whenSamePlayer_areEqual() {
+    func equatable_givenHasPlayerX_whenSamePlayer_areEqual() throws {
         let player = Player()
         let sut = Field()
-        sut.player = player
+        try sut.take(player)
         let other = Field()
-        other.player = player
+        try other.take(player)
         
         #expect(sut == other)
     }
     
     @Test
-    func equatable_givenHasPlayerO_whenSamePlayer_areEqual() {
+    func equatable_givenHasPlayerO_whenSamePlayer_areEqual() throws {
         let player = Player("O")
         let sut = Field()
-        sut.player = player
+        try sut.take(player)
         let other = Field()
-        other.player = player
+        try other.take(player)
         
         #expect(sut == other)
     }
