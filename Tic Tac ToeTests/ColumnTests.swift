@@ -21,7 +21,7 @@ struct ColumnTests {
     func onInit_whenDefault_field1IsNotTakenByAnyPlayer() {
         let sut = Column()
         
-        let player = sut[0].player
+        let player = sut[0].taker
         
         #expect(player == nil)
     }
@@ -30,29 +30,29 @@ struct ColumnTests {
     func onInit_whenDefault_field2IsNotTakenByAnyPlayer() {
         let sut = Column()
         
-        let player = sut[1].player
+        let player = sut[1].taker
         
         #expect(player == nil)
     }
     
     @Test
-    func onPlayerSet_whenPlayer_field1IsTakenByPlayer() {
+    func onPlayerSet_whenPlayer_field1IsTakenByPlayer() throws {
         let sut = Column()
         let player = Player()
         
-        sut[0].player = player
+        try sut[0].take(player)
         
-        #expect(sut[0].player == player)
+        #expect(sut[0].taker == player)
     }
     
     @Test
-    func onPlayerSet_whenPlayer_field2IsTakenByPlayer() {
+    func onPlayerSet_whenPlayer_field2IsTakenByPlayer() throws {
         let sut = Column()
         let player = Player()
         
-        sut[1].player = player
+        try sut[1].take(player)
         
-        #expect(sut[1].player == player)
+        #expect(sut[1].taker == player)
     }
     
     @Test
@@ -63,47 +63,47 @@ struct ColumnTests {
     }
     
     @Test
-    func isEnded_whenAllFieldsAreTakenByTheSamePlayer_returnsTrue() {
+    func isEnded_whenAllFieldsAreTakenByTheSamePlayer_returnsTrue() throws {
         let sut = Column()
         let player = Player()
         
-        sut.forEach { field in
-            field.player = player
+        try sut.forEach { field in
+            try field.take(player)
         }
         
         #expect(sut.isEnded)
     }
     
     @Test
-    func isEnded_whenFirstFieldIsTaken_returnsFalse() {
+    func isEnded_whenFirstFieldIsTaken_returnsFalse() throws {
         let sut = Column()
         let player = Player()
         
-        sut[0].player = player
+        try sut[0].take(player)
         
         #expect(!sut.isEnded)
     }
     
     @Test
-    func isEnded_whenSecondFieldIsTaken_returnsFalse() {
+    func isEnded_whenSecondFieldIsTaken_returnsFalse() throws {
         let sut = Column()
         let player = Player()
         
-        sut[1].player = player
+        try sut[1].take(player)
         
         #expect(!sut.isEnded)
     }
     
     @Test
-    func isEnded_whenAllFieldsAreTakenByDifferentPlayers_returnsTrue() {
+    func isEnded_whenAllFieldsAreTakenByDifferentPlayers_returnsTrue() throws {
         let sut = Column()
         let player1 = Player("X")
         let player2 = Player("O")
         
-        sut.forEach { field in
-            field.player = player1
+        try sut.forEach { field in
+            try field.take(player1)
         }
-        sut.first?.player = player2
+        try sut.first?.take(player2)
         
         #expect(sut.isEnded)
     }
@@ -116,45 +116,45 @@ struct ColumnTests {
     }
     
     @Test
-    func isWon_whenAPlayerTakesAllFields_returnsTrue() {
+    func isWon_whenAPlayerTakesAllFields_returnsTrue() throws {
         let sut = Column()
         let player = Player()
         
-        sut.forEach { field in
-            field.player = player
+        try sut.forEach { field in
+            try field.take(player)
         }
         
         #expect(sut.isWon)
     }
     
     @Test
-    func isWon_whenOnlyFirstFieldIsTaken_returnsFalse() {
+    func isWon_whenOnlyFirstFieldIsTaken_returnsFalse() throws {
         let sut = Column()
         let player = Player()
         
-        sut[0].player = player
+        try sut[0].take(player)
         
         #expect(!sut.isWon)
     }
     
     @Test
-    func isWon_whenOnlySecondFieldIsTaken_returnsFalse() {
+    func isWon_whenOnlySecondFieldIsTaken_returnsFalse() throws {
         let sut = Column()
         let player = Player()
         
-        sut[1].player = player
+        try sut[1].take(player)
         
         #expect(!sut.isWon)
     }
     
     @Test
-    func isWon_whenAllFieldsAreTakenByMultiplePlayers_returnsFalse() {
+    func isWon_whenAllFieldsAreTakenByMultiplePlayers_returnsFalse() throws {
         let sut = Column()
         
-        sut.forEach { field in
-            field.player = Player("X")
+        try sut.forEach { field in
+            try field.take(Player("X"))
         }
-        sut[0].player = Player("Y")
+        try sut[0].take(Player("Y"))
         
         #expect(!sut.isWon)
     }
@@ -167,40 +167,40 @@ struct ColumnTests {
     }
     
     @Test
-    func winner_givenOnlyFirstFieldPlayerHasBeenSet_returnsNil() {
+    func winner_givenOnlyFirstFieldPlayerHasBeenSet_returnsNil() throws {
         let sut = Column()
-        sut[0].player = Player("X")
+        try sut[0].take(Player("X"))
         
         #expect(sut.winner == nil)
     }
     
     @Test
-    func winner_givenOnlySecondFieldPlayerHasBeenSet_returnsNil() {
+    func winner_givenOnlySecondFieldPlayerHasBeenSet_returnsNil() throws {
         let sut = Column()
-        sut[1].player = Player("X")
+        try sut[1].take(Player("X"))
         
         #expect(sut.winner == nil)
     }
     
     @Test
-    func winner_givenAllFieldsHaveAPlayerWithMultiplePlayers_returnsNil() {
+    func winner_givenAllFieldsHaveAPlayerWithMultiplePlayers_returnsNil() throws {
         let sut = Column()
         
-        sut.forEach { field in
-            field.player = Player("X")
+        try sut.forEach { field in
+            try field.take(Player("X"))
         }
-        sut[0].player = Player("Y")
+        try sut[0].take(Player("Y"))
         
         #expect(sut.winner == nil)
     }
     
     @Test
-    func winner_givenAllFieldsHaveSamePlayerAssigned_returnsPlayer() {
+    func winner_givenAllFieldsHaveSamePlayerAssigned_returnsPlayer() throws {
         let sut = Column()
         let player = Player("X")
         
-        sut.forEach { field in
-            field.player = player
+        try sut.forEach { field in
+            try field.take(player)
         }
         
         #expect(sut.winner == player)
