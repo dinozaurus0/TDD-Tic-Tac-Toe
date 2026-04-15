@@ -5,7 +5,7 @@ struct Player: Equatable {
         self.id = id
     }
     
-    func set(field: Field) {
-        field.player = self
+    func set(field: Field) throws {
+        try field.take(self)
     }
 }
