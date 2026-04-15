@@ -13,10 +13,10 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func subscript_givenFirstFieldHasAPlayer_whenIndex0_returnsFirstField() {
+    func subscript_givenFirstFieldHasAPlayer_whenIndex0_returnsFirstField() throws {
         let player = Player()
         let sut = Column()
-        sut[0].player = player
+        try sut[0].take(player)
         
         let result = sut[0]
         
@@ -24,9 +24,9 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func subscript_givenFirstFieldHasAPlayer_whenIndex1_returnsDefaultField() {
+    func subscript_givenFirstFieldHasAPlayer_whenIndex1_returnsDefaultField() throws {
         let sut = Column()
-        sut[0].player = Player()
+        try sut[0].take(Player())
         
         let result = sut[1]
         
@@ -34,10 +34,10 @@ struct ColumnCollectionTests {
     }
     
     @Test
-    func subscript_givenSecondFieldHasAPlayer_whenIndex1_returnsSecondField() {
+    func subscript_givenSecondFieldHasAPlayer_whenIndex1_returnsSecondField() throws {
         let player = Player()
         let sut = Column()
-        sut[1].player = player
+        try sut[1].take(player)
         
         let result = sut[1]
         
