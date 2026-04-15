@@ -4,27 +4,6 @@ import Testing
 @Suite
 struct PlayerTests {
     @Test
-    func onSet_whenField_fieldValueIsNotNil() throws {
-        let sut = Player()
-        let field = Field()
-        
-        try sut.set(field: field)
-        
-        #expect(field.player == sut)
-    }
-    
-    @Test
-    func onSet_whenFieldIsTaken_throwsError() throws {
-        let field = Field()
-        try field.take(Player("O"))
-        let sut = Player()
-        
-        #expect(throws: TicTacToeError.fieldIsTaken) {
-            try sut.set(field: field)
-        }
-    }
-    
-    @Test
     func onInit_idDefaultsToX() {
         let sut = Player()
         #expect(sut.id == "X")

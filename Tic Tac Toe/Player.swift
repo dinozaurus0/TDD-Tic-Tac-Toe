@@ -4,8 +4,4 @@ struct Player: Equatable {
     init(_ id: String = "X") {
         self.id = id
     }
-    
-    func set(field: Field) throws {
-        try field.take(self)
-    }
 }
