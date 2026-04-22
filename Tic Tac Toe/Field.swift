@@ -1,5 +1,5 @@
 class Field: Equatable {
-    var player: Player? = nil
+    private var player: Player? = nil
     
     var isTaken: Bool {
         player != nil
