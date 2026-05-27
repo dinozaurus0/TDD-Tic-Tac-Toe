@@ -6,6 +6,10 @@ struct Board {
     let isEnded = false
     
     func player(row: Offset, column: Offset) -> Player? {
-        nil
+        if column == 1 {
+            return Player()
+        } else {
+            return nil
+        }
     }
 }

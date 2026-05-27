@@ -17,4 +17,13 @@ struct BoardTests {
         
         #expect(player == nil)
     }
+    
+    @Test
+    func scaffold_player_givenDefault_when0x1_returnsDefaultPlayer() {
+        let sut = Board()
+        
+        let player = sut.player(row: 0, column: 1)
+        
+        #expect(player == Player())
+    }
 }
