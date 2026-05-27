@@ -26,4 +26,15 @@ struct BoardTests {
         
         #expect(player == Player())
     }
+    
+    @Test
+    func scaffold_take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() {
+        let sut = Board()
+        let player = Player()
+        
+        sut.take(row: 0, column: 1, player: player)
+        
+        let takenPlayer = sut.player(row: 0, column: 1)
+        #expect(takenPlayer == player)
+    }
 }

@@ -12,4 +12,8 @@ struct Board {
             return nil
         }
     }
+    
+    func take(row: Offset, column: Offset, player: Player) {
+        
+    }
 }
