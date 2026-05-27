@@ -8,5 +8,13 @@ struct BoardTests {
         
         #expect(!sut.isEnded)
     }
-
+    
+    @Test
+    func player_givenDefault_when0x0_returnsNil() {
+        let sut = Board()
+        
+        let player = sut.player(row: 0, column: 0)
+        
+        #expect(player == nil)
+    }
 }
