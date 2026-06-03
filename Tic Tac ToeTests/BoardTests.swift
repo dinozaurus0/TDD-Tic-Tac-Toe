@@ -19,18 +19,20 @@ struct BoardTests {
     }
     
     @Test
-    func scaffold_player_givenDefault_when0x1_returnsDefaultPlayer() {
+    func take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() {
         let sut = Board()
+        let player = Player()
         
-        let player = sut.player(row: 0, column: 1)
+        sut.take(row: 0, column: 1, player: player)
         
-        #expect(player == Player())
+        let takenPlayer = sut.player(row: 0, column: 1)
+        #expect(takenPlayer == player)
     }
     
     @Test
-    func scaffold_take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() {
+    func take_givenDefault_when0x1AndPlayerO_0x1IsPlayerO() {
         let sut = Board()
-        let player = Player()
+        let player = Player("O")
         
         sut.take(row: 0, column: 1, player: player)
         
