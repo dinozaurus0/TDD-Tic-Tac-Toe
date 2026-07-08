@@ -50,4 +50,15 @@ struct BoardTests {
         let takenPlayer = sut.player(row: 0, column: 2)
         #expect(takenPlayer == player)
     }
+    
+    @Test
+    func player_given0x1IsPlayerO_when0x2_returnsNil() {
+        let sut = Board()
+        let player = Player("O")
+        sut.take(row: 0, column: 1, player: player)
+        
+        let takenPlayer = sut.player(row: 0, column: 2)
+        
+        #expect(takenPlayer == nil)
+    }
 }
