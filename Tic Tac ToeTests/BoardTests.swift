@@ -18,6 +18,7 @@ struct BoardTests {
         #expect(player == nil)
     }
     
+    // Minimal test of take().
     @Test
     func take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() {
         let sut = Board()
@@ -29,6 +30,7 @@ struct BoardTests {
         #expect(takenPlayer == player)
     }
     
+    // take() works for different players.
     @Test
     func take_givenDefault_when0x1AndPlayerO_0x1IsPlayerO() {
         let sut = Board()
@@ -40,6 +42,7 @@ struct BoardTests {
         #expect(takenPlayer == player)
     }
     
+    // take() works for column other than 1.
     @Test
     func take_givenDefault_when0x2AndPlayerO_0x2IsPlayerO() {
         let sut = Board()
@@ -51,6 +54,7 @@ struct BoardTests {
         #expect(takenPlayer == player)
     }
     
+    // The column used by take() matters for player().
     @Test
     func player_given0x1IsPlayerO_when0x2_returnsNil() {
         let sut = Board()
