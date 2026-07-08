@@ -65,4 +65,16 @@ struct BoardTests {
         
         #expect(takenPlayer == nil)
     }
+    
+    // The row used by take() matters for player().
+    @Test
+    func player_given0x1IsPlayerO_when2x1_returnsNil() {
+        let sut = Board()
+        let player = Player("O")
+        sut.take(row: 0, column: 1, player: player)
+        
+        let takenPlayer = sut.player(row: 2, column: 1)
+        
+        #expect(takenPlayer == nil)
+    }
 }
