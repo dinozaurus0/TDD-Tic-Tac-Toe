@@ -39,4 +39,15 @@ struct BoardTests {
         let takenPlayer = sut.player(row: 0, column: 1)
         #expect(takenPlayer == player)
     }
+    
+    @Test
+    func take_givenDefault_when0x2AndPlayerO_0x2IsPlayerO() {
+        let sut = Board()
+        let player = Player("O")
+        
+        sut.take(row: 0, column: 2, player: player)
+        
+        let takenPlayer = sut.player(row: 0, column: 2)
+        #expect(takenPlayer == player)
+    }
 }

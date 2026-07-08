@@ -8,11 +8,7 @@ class Board {
     let isEnded = false
     
     func player(row: Offset, column: Offset) -> Player? {
-        if column == 1 {
-            return player
-        } else {
-            return nil
-        }
+       player
     }
     
     func take(row: Offset, column: Offset, player: Player) {
