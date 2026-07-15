@@ -3,14 +3,14 @@ import Testing
 
 struct BoardTests {
     @Test
-    func isEnded_whenDefault_returnsFalse() {
+    func isEnded_whenDefault_returnsFalse() throws {
         let sut = Board()
         
         #expect(!sut.isEnded)
     }
     
     @Test
-    func player_givenDefault_when0x0_returnsNil() {
+    func player_givenDefault_when0x0_returnsNil() throws {
         let sut = Board()
         
         let player = sut.player(row: 0, column: 0)
@@ -20,7 +20,7 @@ struct BoardTests {
     
     // Minimal test of take().
     @Test
-    func take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() {
+    func take_givenDefault_when0x1AndDefaultPlayer_0x1IsDefaultPlayer() throws {
         let sut = Board()
         let player = Player()
         
@@ -32,7 +32,7 @@ struct BoardTests {
     
     // take() works for different players.
     @Test
-    func take_givenDefault_when0x1AndPlayerO_0x1IsPlayerO() {
+    func take_givenDefault_when0x1AndPlayerO_0x1IsPlayerO() throws {
         let sut = Board()
         let player = Player("O")
         
@@ -44,7 +44,7 @@ struct BoardTests {
     
     // take() works for column other than 1.
     @Test
-    func take_givenDefault_when0x2AndPlayerO_0x2IsPlayerO() {
+    func take_givenDefault_when0x2AndPlayerO_0x2IsPlayerO() throws {
         let sut = Board()
         let player = Player("O")
         
@@ -56,7 +56,7 @@ struct BoardTests {
     
     // The column used by take() matters for player().
     @Test
-    func player_given0x1IsPlayerO_when0x2_returnsNil() {
+    func player_given0x1IsPlayerO_when0x2_returnsNil() throws {
         let sut = Board()
         let player = Player("O")
         sut.take(row: 0, column: 1, player: player)
@@ -68,7 +68,7 @@ struct BoardTests {
     
     // The row used by take() matters for player().
     @Test
-    func player_given0x1IsPlayerO_when2x1_returnsNil() {
+    func player_given0x1IsPlayerO_when2x1_returnsNil() throws {
         let sut = Board()
         let player = Player("O")
         sut.take(row: 0, column: 1, player: player)
