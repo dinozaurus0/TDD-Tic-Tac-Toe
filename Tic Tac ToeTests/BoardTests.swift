@@ -88,4 +88,15 @@ struct BoardTests {
             try sut.take(row: 0, column: 0, player: Player())
         }
     }
+    
+    // When a position is occupied, can still take a different position that is not occupied.
+    @Test
+    func take_given0x0IsTaken_when0x1_0x1IsTaken() throws {
+        let sut = Board()
+        try sut.take(row: 0, column: 0, player: Player())
+        
+        try sut.take(row: 0, column: 1, player: Player())
+        
+        #expect(sut.player(row: 0, column: 1) != nil)
+    }
 }

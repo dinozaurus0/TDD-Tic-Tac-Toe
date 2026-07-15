@@ -21,7 +21,7 @@ class Board {
         column: Offset,
         player: Player
     ) throws {
-        guard self.player == nil else {
+        guard self.player(row: row, column: column) == nil else {
             throw TicTacToeError.fieldIsTaken
         }
         
