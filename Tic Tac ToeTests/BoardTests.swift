@@ -77,4 +77,15 @@ struct BoardTests {
         
         #expect(takenPlayer == nil)
     }
+    
+    // Cannot take an occupied position.
+    @Test
+    func take_given0x0IsTaken_when0x0_throws() throws {
+        let sut = Board()
+        try sut.take(row: 0, column: 0, player: Player())
+        
+        #expect(throws: TicTacToeError.fieldIsTaken) {
+            try sut.take(row: 0, column: 0, player: Player())
+        }
+    }
 }

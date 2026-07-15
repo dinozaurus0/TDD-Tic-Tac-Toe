@@ -16,7 +16,15 @@ class Board {
         return nil
     }
     
-    func take(row: Offset, column: Offset, player: Player) throws {
+    func take(
+        row: Offset,
+        column: Offset,
+        player: Player
+    ) throws {
+        guard self.player == nil else {
+            throw TicTacToeError.fieldIsTaken
+        }
+        
         self.row = row
         self.column = column
         self.player = player
