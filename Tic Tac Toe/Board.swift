@@ -16,7 +16,7 @@ class Board {
         return nil
     }
     
-    func take(row: Offset, column: Offset, player: Player) {
+    func take(row: Offset, column: Offset, player: Player) throws {
         self.row = row
         self.column = column
         self.player = player
